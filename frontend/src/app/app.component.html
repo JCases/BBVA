@@ -1,0 +1,78 @@
+<main class="main">
+  <div class="content">
+    <div class="form-container">
+      <form #myForm="ngForm" (ngSubmit)="sendForm(myForm)" class="form">
+        <mat-form-field class="form-field">
+          <mat-label>Origin</mat-label>
+          <input
+            matInput
+            type="text"
+            id="origin"
+            name="origin"
+            [(ngModel)]="form.origin"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Destination</mat-label>
+          <input
+            matInput
+            type="text"
+            id="destination"
+            name="destination"
+            [(ngModel)]="form.destination"
+            required
+          />
+        </mat-form-field>
+
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="myForm.invalid || loading"
+          >
+            <span *ngIf="!loading">Search</span>
+            <div *ngIf="loading">
+              <mat-spinner [diameter]="20"></mat-spinner>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      <mat-tab-group class="tab">
+        <mat-tab label="Flights">
+          <div class="data">
+            <app-flight
+              *ngFor="let f of flights"
+              [origin]="originSearch"
+              [destination]="destinationSearch"
+              [dateDeparture]="f.dateDeparture"
+              [dateReturn]="f.dateReturn"
+              [price]="f.price"
+              [airline]="f.airline"
+            />
+          </div>
+        </mat-tab>
+        <mat-tab label="Weather">
+          <div class="data">
+            <app-weather
+              *ngFor="let w of weather"
+              [date]="w.id"
+              [maxTemperature]="w.maxTemperature"
+              [minTemperature]="w.minTemperature"
+              [avgTemperature]="w.avgTemperature"
+              [maxWind]="w.maxWind"
+              [totalPrecipitation]="w.totalPrecipitation"
+              [uv]="w.uv"
+            />
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</main>
+
+<router-outlet></router-outlet>

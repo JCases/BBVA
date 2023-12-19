@@ -1,0 +1,37 @@
+.info {
+  display: flex;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.form {
+  width: 300px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+p {
+  text-align: center;
+}
+
+.tab {
+  width: 100vw;
+}

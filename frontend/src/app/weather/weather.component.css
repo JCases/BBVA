@@ -1,0 +1,14 @@
+.card {
+  width: 400px;
+  margin: 10px;
+}
+
+.mat-card-header {
+  text-align: center;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
